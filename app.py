@@ -22,7 +22,9 @@ def get_starships_by_hyperdrive_rating_local():
 def get_starships_by_hyperdrive_rating_live():
     """
     :return: Grabs up-to-date data from the reference API, then sorts and returns a jsonified version of the data. This
-    is slower than the local version, as it relies on the speed of the reply from the data external data source.
+    is slower than the local version, as it relies on the speed of the reply from the data external data source. End
+    point is index so it loads when the test server loads, but normally I would have the app and route match as the
+    above function.
     """
 
     master_starship_dictionary = {
