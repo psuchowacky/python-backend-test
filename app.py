@@ -15,10 +15,10 @@ def get_starships_by_hyperdrive_rating_local():
     data = file.read()
     file.close()
     json_data = json.loads(data)
-    return jsonify(json_data)
+    return jsonify(json_data), 200
 
 
-@app.route('/get_starships_by_hyperdrive_rating_live', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_starships_by_hyperdrive_rating_live():
     """
     :return: Grabs up-to-date data from the reference API, then sorts and returns a jsonified version of the data. This
@@ -57,7 +57,7 @@ def get_starships_by_hyperdrive_rating_live():
     # Sort the output
     master_starship_dictionary['starships'] = sorted(master_starship_dictionary['starships'],
                                                      key=lambda k: k['hyperdrive'])
-    return jsonify(master_starship_dictionary)
+    return jsonify(master_starship_dictionary), 200
 
 
 if __name__ == '__main__':
